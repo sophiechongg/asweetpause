@@ -69,19 +69,22 @@ sips -Z 32  Photos/Sticker.png --out assets/favicon-32.png
 sips -Z 180 Photos/Sticker.png --out assets/apple-touch-icon.png
 ```
 
-## Publish on GitHub Pages
+## Publishing changes
 
-1. Create a new repository on GitHub, for example `a-sweet-pause`.
-2. From this folder, run:
-   ```
-   git init
-   git add .
-   git commit -m "A Sweet Pause website"
-   git branch -M main
-   git remote add origin https://github.com/YOUR-USERNAME/a-sweet-pause.git
-   git push -u origin main
-   ```
-3. On GitHub, go to Settings → Pages. Choose "Deploy from a branch", then `main` and `/ (root)`.
-4. After a minute, the site is live at `https://YOUR-USERNAME.github.io/a-sweet-pause/`.
+The site lives at https://asweetpausebakery.com. It's hosted for free on GitHub Pages from the `sophiechongg/asweetpause` repository.
 
-After you change anything, run `git add .`, `git commit -m "Update"` and `git push`. The site updates on its own.
+After you change anything, open GitHub Desktop, write a short summary, click **Commit to main**, then **Push origin**. The live site updates in a minute or two.
+
+## The domain
+
+`asweetpausebakery.com` is registered at Namecheap (auto-renews yearly). The `CNAME` file in this folder tells GitHub Pages to use it, so don't delete that file.
+
+Namecheap → Domain List → Manage → Advanced DNS has these records:
+
+| Type | Host | Value |
+|---|---|---|
+| A Record | @ | 185.199.108.153 |
+| A Record | @ | 185.199.109.153 |
+| A Record | @ | 185.199.110.153 |
+| A Record | @ | 185.199.111.153 |
+| CNAME Record | www | sophiechongg.github.io |
