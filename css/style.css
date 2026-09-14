@@ -1,0 +1,616 @@
+/* A Sweet Pause
+   Colors come from the logo and the photos: parchment paper, browned butter,
+   maple glaze, the whisk, and the walnut table. */
+
+:root {
+  --parchment: #F7EFE4;
+  --parchment-deep: #EFE2CF;
+  --espresso: #3A2418;
+  --muted: #6B5243;
+  --butter: #8B5A2B;
+  --butter-dark: #6F451F;
+  --maple: #E6C79C;
+  --taupe: #B59C8B;
+  --walnut: #4E2C1E;
+  --on-walnut: #EADBC8;
+  --field: #FFFBF5;
+  --error: #9A3B26;
+
+  --display: "Italiana", "Didot", "Bodoni 72", Georgia, serif;
+  --body: "Mulish", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+
+  --gutter: clamp(1.25rem, 5vw, 3rem);
+  --measure: 34rem;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  margin: 0;
+  background: var(--parchment);
+  color: var(--espresso);
+  font-family: var(--body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+[hidden] { display: none !important; }
+
+a {
+  color: var(--butter);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+a:hover { color: var(--butter-dark); }
+
+:focus-visible {
+  outline: 3px solid var(--butter);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+h1, h2, h3 {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 400;
+  line-height: 1.05;
+}
+h2 { font-size: clamp(2.6rem, 6vw, 4.25rem); }
+h3 { font-size: clamp(1.85rem, 3.4vw, 2.35rem); }
+p { margin: 0; }
+
+.wrap {
+  max-width: 74rem;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section { padding-block: clamp(4rem, 9vw, 7rem); }
+
+.lede {
+  max-width: var(--measure);
+  font-size: 1.1875rem;
+  color: var(--muted);
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 20;
+  padding: 0.6rem 1rem;
+  background: var(--espresso);
+  color: var(--parchment);
+  border-radius: 999px;
+}
+.skip-link:focus { top: 1rem; color: var(--parchment); }
+
+/* Buttons */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.6rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--butter);
+  color: var(--parchment);
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.btn:hover { background: var(--butter-dark); color: var(--parchment); }
+.btn-small { padding: 0.6rem 1.3rem; font-size: 0.95rem; }
+.btn-large { padding: 1.05rem 2.2rem; font-size: 1.1rem; }
+
+/* Header */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(247, 239, 228, 0.94);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(181, 156, 139, 0.35);
+}
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 4.5rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: var(--espresso);
+  font-family: var(--display);
+  font-size: 1.5rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.brand:hover { color: var(--espresso); }
+.brand img { width: 2.75rem; height: 2.75rem; border-radius: 50%; }
+
+.header-nav { display: flex; align-items: center; gap: 1.25rem; }
+.header-link {
+  padding-block: 0.6rem;
+  color: var(--espresso);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.header-link:hover { color: var(--butter); text-decoration: underline; }
+
+/* Hero */
+
+.hero { padding-block: clamp(2rem, 6vw, 5rem); }
+.hero .wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(2.5rem, 6vw, 5rem);
+}
+.hero h1 {
+  font-size: clamp(3.25rem, 6.6vw, 5.5rem);
+  line-height: 0.95;
+}
+.hero h1 span { display: block; white-space: nowrap; }
+.hero .lede { margin-top: 1.25rem; }
+.hero .btn { margin-top: 1.75rem; }
+
+/* The seal: a cookie framed like the logo, with text that turns once and rests */
+.seal {
+  position: relative;
+  justify-self: end;
+  width: 100%;
+  max-width: 33rem;
+  aspect-ratio: 1;
+}
+.seal-photo {
+  position: absolute;
+  top: 11%;
+  left: 11%;
+  width: 78%;
+  height: 78%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.seal-ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  animation: seal-turn 3.2s cubic-bezier(0.3, 0, 0.15, 1) 0.3s both;
+}
+.seal-text {
+  fill: var(--butter);
+  font-family: var(--display);
+  font-size: 29px;
+}
+@keyframes seal-turn {
+  from { transform: rotate(-360deg); }
+  to { transform: rotate(0deg); }
+}
+
+/* Order status line (filled in by js/main.js) */
+
+.status {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-weight: 700;
+}
+.status::before {
+  content: "";
+  flex: none;
+  width: 0.6rem;
+  height: 0.6rem;
+  margin-top: 0.5em;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+}
+.status[data-state="open"]::before { background: currentColor; }
+
+/* Order */
+
+.order { background: var(--walnut); color: var(--on-walnut); }
+.order .wrap { max-width: 46rem; }
+.order h2 { color: var(--parchment); }
+.order a { color: var(--maple); }
+.order a:hover { color: var(--parchment); }
+.order :focus-visible { outline-color: var(--maple); }
+.order .status { color: var(--maple); }
+
+.order-head {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: clamp(2rem, 5vw, 3rem);
+}
+.facts {
+  display: grid;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.facts li { position: relative; padding-left: 1.5rem; }
+.facts li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  top: 0.15em;
+  color: var(--maple);
+  font-size: 0.8rem;
+}
+
+/* Order form (sent to Google Forms by js/order.js) */
+
+.form-card {
+  padding: clamp(1.25rem, 4vw, 2.75rem);
+  border-radius: 1.5rem;
+  background: var(--parchment);
+  color: var(--espresso);
+}
+.form-card a { color: var(--butter); }
+.form-card a:hover { color: var(--butter-dark); }
+.form-card :focus-visible { outline-color: var(--butter); }
+.form-card .btn,
+.form-card .btn:hover { color: var(--parchment); }
+.form-card h3 { font-size: clamp(1.75rem, 3vw, 2.1rem); }
+
+.form-section {
+  display: grid;
+  gap: 1.25rem;
+  padding-block: 2rem;
+  border-top: 1.5px dashed var(--taupe);
+}
+.form-section:first-child { padding-top: 0; border-top: 0; }
+.form-section:last-child { padding-bottom: 0; }
+
+.form-section h3 { display: flex; align-items: center; gap: 0.75rem; }
+.step-number {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1.5px solid var(--butter);
+  border-radius: 50%;
+  color: var(--butter);
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.field {
+  display: grid;
+  gap: 0.45rem;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.field legend { margin-bottom: 0.55rem; padding: 0; }
+.field-label { font-size: 0.95rem; font-weight: 700; }
+.optional { font-weight: 400; color: var(--muted); }
+.field-error { font-size: 0.875rem; font-weight: 700; color: var(--error); }
+.field-error:empty { display: none; }
+.field-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.form-card input[type="text"],
+.form-card input[type="email"],
+.form-card input[type="tel"],
+.form-card textarea {
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.75rem 0.95rem;
+  border: 1.5px solid var(--taupe);
+  border-radius: 0.75rem;
+  background: var(--field);
+  color: var(--espresso);
+  font: inherit;
+  line-height: 1.4;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.form-card textarea { min-height: 5.25rem; resize: vertical; }
+.form-card input:focus,
+.form-card textarea:focus {
+  outline: none;
+  border-color: var(--butter);
+  box-shadow: 0 0 0 3px rgba(139, 90, 43, 0.2);
+}
+.form-card [aria-invalid="true"] { border-color: var(--error); }
+
+.input-prefix { position: relative; }
+.input-prefix span {
+  position: absolute;
+  top: 50%;
+  left: 0.95rem;
+  transform: translateY(-50%);
+  color: var(--muted);
+  pointer-events: none;
+}
+.order-form .input-prefix input { padding-left: 2rem; }
+
+/* Box sizes and flavors: the real radio buttons are hidden,
+   and the card right after each one shows its state */
+.size,
+.flavor { position: relative; display: block; cursor: pointer; }
+.size input,
+.flavor input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+.size input:focus-visible + .size-card,
+.flavor input:focus-visible + .flavor-card {
+  outline: 3px solid var(--butter);
+  outline-offset: 3px;
+}
+
+.size-card,
+.flavor-card {
+  position: relative;
+  border: 1.5px solid var(--taupe);
+  border-radius: 1rem;
+  background: var(--field);
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+.size-card::after,
+.flavor-card::after {
+  content: "";
+  position: absolute;
+  right: 1rem;
+  width: 1.1rem;
+  height: 1.1rem;
+  border: 1.5px solid var(--taupe);
+  border-radius: 50%;
+}
+.size:hover .size-card,
+.flavor:hover .flavor-card { border-color: var(--butter); }
+.size input:checked + .size-card,
+.flavor input:checked + .flavor-card {
+  border-color: var(--butter);
+  background: var(--parchment-deep);
+  box-shadow: inset 0 0 0 1px var(--butter);
+}
+.size input:checked + .size-card::after,
+.flavor input:checked + .flavor-card::after {
+  border-color: var(--butter);
+  background: var(--butter);
+  box-shadow: inset 0 0 0 3px var(--parchment-deep);
+}
+
+/* The 6 box while "Half and half" is picked */
+.order-form:not(.is-closed) .size input:disabled + .size-card {
+  border-color: var(--taupe);
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.sizes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+.size-card {
+  display: grid;
+  gap: 0.2rem;
+  padding: 1rem 1.15rem;
+}
+.size-card::after { top: 1rem; }
+.size-count { font-size: 0.95rem; font-weight: 700; }
+.size-price { font-family: var(--display); font-size: 2.5rem; line-height: 1; }
+
+.flavors { display: grid; gap: 0.75rem; }
+.flavor-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 3rem 0.75rem 0.75rem;
+}
+.flavor-card::after { top: 50%; transform: translateY(-50%); }
+.flavor-photo {
+  flex: none;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.flavor-photo--pair { position: relative; display: block; }
+.flavor-photo--pair img {
+  position: absolute;
+  top: 0.6rem;
+  width: 3.3rem;
+  height: 3.3rem;
+  border: 2px solid var(--field);
+  border-radius: 50%;
+  object-fit: cover;
+}
+.flavor-photo--pair img:first-child { left: 0; }
+.flavor-photo--pair img:last-child { right: 0; }
+.flavor input:checked + .flavor-card .flavor-photo--pair img { border-color: var(--parchment-deep); }
+.flavor-text { display: grid; gap: 0.1rem; }
+.flavor-name { font-weight: 700; line-height: 1.3; }
+.flavor-note { font-size: 0.9rem; line-height: 1.4; color: var(--muted); }
+
+/* Outside the ordering window, the cookies show as a menu you can't pick from */
+.order-form.is-closed .size,
+.order-form.is-closed .flavor { cursor: default; }
+.order-form.is-closed .size:hover .size-card,
+.order-form.is-closed .flavor:hover .flavor-card { border-color: var(--taupe); }
+.order-form.is-closed .size-card::after,
+.order-form.is-closed .flavor-card::after { display: none; }
+.order-form.is-closed .flavor-card { padding-right: 1rem; }
+
+/* Who to pay, shown before the order is placed */
+.pay-to {
+  display: grid;
+  gap: 0.1rem;
+  padding: 1.1rem 1.25rem;
+  border-radius: 1rem;
+  background: var(--parchment-deep);
+  text-align: center;
+}
+.pay-to-line { font-size: 0.95rem; color: var(--muted); }
+.pay-to-line strong { color: var(--espresso); }
+.pay-to-handle {
+  font-size: clamp(1.5rem, 5vw, 1.85rem);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--butter);
+  overflow-wrap: anywhere;
+}
+
+.form-actions { display: grid; gap: 0.75rem; }
+.order-submit {
+  width: 100%;
+  margin-top: 0.25rem;
+  padding-block: 1.05rem;
+  font-size: 1.1rem;
+}
+.order-submit:disabled { opacity: 0.7; cursor: progress; }
+.form-fine { font-size: 0.9rem; color: var(--muted); text-align: center; }
+.form-message { font-size: 0.95rem; font-weight: 700; color: var(--error); }
+.form-fallback { font-size: 0.85rem; color: var(--muted); text-align: center; }
+
+.order-done {
+  display: grid;
+  justify-items: start;
+  gap: 1.1rem;
+}
+.order-done:focus { outline: none; }
+.signoff { font-family: var(--display); font-size: 2rem; color: var(--butter); }
+
+/* About */
+
+.about .wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(2.5rem, 6vw, 5rem);
+}
+.portrait {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: 50% 50% 1rem 1rem / 36% 36% 1rem 1rem;
+  background: var(--parchment-deep);
+}
+.portrait img { width: 100%; height: 100%; object-fit: cover; }
+.about-copy { display: grid; gap: 1.1rem; max-width: 34rem; }
+.about-copy h2 { margin-bottom: 0.5rem; }
+.about-copy p { font-size: 1.125rem; }
+.about-copy .signoff { margin-top: 0.5rem; }
+
+/* Contact */
+
+.contact { background: var(--parchment-deep); }
+.contact .wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: start;
+  gap: clamp(2.5rem, 6vw, 5rem);
+}
+.contact-intro { display: grid; justify-items: start; gap: 1.25rem; }
+.instagram-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding-block: 0.4rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+.instagram-link:hover span { text-decoration: underline; }
+.instagram-link svg { flex: none; width: 1.6rem; height: 1.6rem; }
+
+.contact-form { display: grid; gap: 1.25rem; }
+.contact-form .btn { width: 100%; padding-block: 1rem; font-size: 1.05rem; }
+.contact-form .btn:disabled { opacity: 0.7; cursor: progress; }
+.contact-trap {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+.contact-done { display: grid; gap: 0.75rem; }
+.contact-done:focus { outline: none; }
+
+/* Footer */
+
+.site-footer {
+  padding-block: 2.5rem;
+  background: var(--walnut);
+  color: var(--on-walnut);
+  font-size: 0.95rem;
+}
+.site-footer .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+}
+.site-footer a { color: var(--maple); }
+.site-footer :focus-visible { outline-color: var(--maple); }
+.brand--footer,
+.brand--footer:hover { color: var(--parchment); }
+
+/* Responsive */
+
+@media (max-width: 860px) {
+  .hero .wrap { grid-template-columns: 1fr; }
+  .hero h1 { font-size: clamp(3.1rem, 12.5vw, 5.5rem); }
+  .seal { justify-self: center; max-width: 18rem; }
+}
+
+@media (max-width: 760px) {
+  .about .wrap { grid-template-columns: 1fr; }
+  .contact .wrap { grid-template-columns: 1fr; }
+  .portrait { max-width: 22rem; }
+}
+
+@media (max-width: 520px) {
+  .btn-large { width: 100%; }
+  .form-card { border-radius: 1.25rem; }
+  .field-pair { grid-template-columns: 1fr; }
+  .flavor-card { gap: 0.8rem; }
+  .flavor-photo { width: 3.75rem; height: 3.75rem; }
+  .flavor-photo--pair img { top: 0.5rem; width: 2.75rem; height: 2.75rem; }
+}
+
+@media (max-width: 420px) {
+  .brand { font-size: 1.25rem; }
+  .brand img { width: 2.25rem; height: 2.25rem; }
+  .header-nav { gap: 0.9rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .seal-ring { animation: none; }
+  .btn { transition: none; }
+}

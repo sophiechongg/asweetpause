@@ -1,0 +1,6 @@
+# Original photos are too large for the repo; web-sized copies live in assets/img
+Photos/
+.DS_Store
+
+# Local editor settings
+.claude/

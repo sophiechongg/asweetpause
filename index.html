@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A Sweet Pause | Brown butter cookies in Ann Arbor</title>
+  <meta name="description" content="Fresh, baked to order brown butter cookies, delivered Fridays around Ann Arbor. Made to slow down life and enjoy the little things.">
+  <meta property="og:title" content="A Sweet Pause">
+  <meta property="og:description" content="Fresh, baked to order brown butter cookies, delivered Fridays around Ann Arbor.">
+  <meta property="og:image" content="https://asweetpause.com/assets/img/hero-cookie-1600.jpg">
+  <meta property="og:url" content="https://asweetpause.com/">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Mulish:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#order">Skip to the order form</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="#top">
+        <img src="assets/logo.png" alt="" width="44" height="44">
+        <span>A Sweet Pause</span>
+      </a>
+      <nav class="header-nav" aria-label="Main">
+        <a class="btn btn-small" href="#order">Order</a>
+        <a class="header-link" href="#about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- Hero -->
+    <section class="hero" id="top">
+      <div class="wrap">
+        <div class="hero-copy">
+          <h1><span>Pause.</span> <span>Have a cookie.</span></h1>
+          <p class="lede">Brown butter cookies, baked to order in Ann Arbor.</p>
+          <a class="btn btn-large" href="#order">Order cookies</a>
+        </div>
+
+        <div class="seal">
+          <img class="seal-photo"
+               src="assets/img/hero-cookie-800.jpg"
+               srcset="assets/img/hero-cookie-800.jpg 600w, assets/img/hero-cookie-1600.jpg 1200w"
+               sizes="(max-width: 860px) 18rem, 420px"
+               width="1200" height="1600"
+               alt="A brown butter chocolate chip cookie on a white plate, seen from above">
+          <svg class="seal-ring" viewBox="0 0 500 500" aria-hidden="true">
+            <defs>
+              <path id="ring-path" d="M250,250 m-226,0 a226,226 0 1,1 452,0 a226,226 0 1,1 -452,0"/>
+            </defs>
+            <circle cx="250" cy="250" r="206" fill="none" stroke="#B59C8B" stroke-width="1.5"/>
+            <text class="seal-text">
+              <textPath href="#ring-path" textLength="1410" lengthAdjust="spacing">a sweet pause ✦ baked to order in ann arbor ✦ slow down, have a cookie ✦</textPath>
+            </text>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Order -->
+    <section class="section order" id="order">
+      <div class="wrap">
+        <div class="order-head">
+          <h2>Order cookies</h2>
+          <p class="status" data-order-status>Ordering is open</p>
+          <!-- ORDERING DAYS: if these change, update js/main.js too -->
+          <ul class="facts">
+            <li>Order Sunday 8 AM to Thursday 10 AM, while spots last</li>
+            <li>Delivered Friday, 3 to 7 PM, around Ann Arbor and U-M dorms</li>
+          </ul>
+        </div>
+
+        <!-- ORDER FORM: answers are sent to the Google Form. Question IDs and answer text live in js/order.js -->
+        <form class="form-card order-form" id="order-form" novalidate>
+
+          <div class="form-section">
+            <h3><span class="step-number">1</span> Your cookies</h3>
+
+            <fieldset class="field" data-message="Choose a flavor.">
+              <legend class="field-label">Flavor</legend>
+              <div class="flavors">
+                <label class="flavor">
+                  <input type="radio" name="flavor" value="signature" required>
+                  <span class="flavor-card">
+                    <img class="flavor-photo" src="assets/img/flavor-chocolate-chip.jpg" alt="" width="480" height="480" loading="lazy">
+                    <span class="flavor-text">
+                      <span class="flavor-name">Brown butter chocolate chip</span>
+                      <span class="flavor-note">Crisp edges, chewy middle, sea salt on top.</span>
+                    </span>
+                  </span>
+                </label>
+
+                <!-- SEASONAL FLAVOR: change the photo, name and note on this card and the second photo
+                     in "Half and half". Then update the seasonal answers in js/order.js and the Google Form. -->
+                <label class="flavor">
+                  <input type="radio" name="flavor" value="seasonal" required>
+                  <span class="flavor-card">
+                    <img class="flavor-photo" src="assets/img/flavor-pumpkin-maple.jpg" alt="" width="480" height="480" loading="lazy">
+                    <span class="flavor-text">
+                      <span class="flavor-name">Brown butter pumpkin with maple glaze</span>
+                      <span class="flavor-note">Soft, spiced, and only here for fall.</span>
+                    </span>
+                  </span>
+                </label>
+
+                <label class="flavor">
+                  <input type="radio" name="flavor" value="half" required>
+                  <span class="flavor-card">
+                    <span class="flavor-photo flavor-photo--pair">
+                      <img src="assets/img/flavor-chocolate-chip.jpg" alt="" width="480" height="480" loading="lazy">
+                      <img src="assets/img/flavor-pumpkin-maple.jpg" alt="" width="480" height="480" loading="lazy">
+                    </span>
+                    <span class="flavor-text">
+                      <span class="flavor-name">Half and half</span>
+                      <span class="flavor-note">Six of each, in a box of 12.</span>
+                    </span>
+                  </span>
+                </label>
+              </div>
+              <p class="field-error"></p>
+            </fieldset>
+
+            <fieldset class="field" data-message="Choose a box of 6 or 12.">
+              <legend class="field-label">Box</legend>
+              <div class="sizes">
+                <label class="size">
+                  <input type="radio" name="size" value="6" required>
+                  <span class="size-card">
+                    <span class="size-count">6 cookies</span>
+                    <span class="size-price">$15</span>
+                  </span>
+                </label>
+                <label class="size">
+                  <input type="radio" name="size" value="12" required>
+                  <span class="size-card">
+                    <span class="size-count">12 cookies</span>
+                    <span class="size-price">$25</span>
+                  </span>
+                </label>
+              </div>
+              <p class="field-error"></p>
+            </fieldset>
+
+            <div class="field" data-order-only>
+              <label class="field-label" for="order-allergies">Allergies <span class="optional">(optional)</span></label>
+              <input id="order-allergies" name="allergies" type="text">
+            </div>
+          </div>
+
+          <div class="form-section" data-order-only>
+            <h3><span class="step-number">2</span> Delivery</h3>
+
+            <div class="field" data-message="Add your name.">
+              <label class="field-label" for="order-name">Name</label>
+              <input id="order-name" name="name" type="text" autocomplete="name" required>
+              <p class="field-error"></p>
+            </div>
+
+            <div class="field-pair">
+              <div class="field" data-message="Add a phone number with area code.">
+                <label class="field-label" for="order-phone">Phone</label>
+                <input id="order-phone" name="phone" type="tel" autocomplete="tel" required>
+                <p class="field-error"></p>
+              </div>
+              <div class="field" data-message="Add an email address, like name@example.com.">
+                <label class="field-label" for="order-email">Email</label>
+                <input id="order-email" name="email" type="email" autocomplete="email" required>
+                <p class="field-error"></p>
+              </div>
+            </div>
+
+            <div class="field" data-message="Add a delivery address.">
+              <label class="field-label" for="order-address">Delivery address <span class="optional">(or dorm and room)</span></label>
+              <textarea id="order-address" name="address" rows="2" autocomplete="street-address" required></textarea>
+              <p class="field-error"></p>
+            </div>
+
+            <div class="field">
+              <label class="field-label" for="order-notes">Gift message or meetup request <span class="optional">(optional)</span></label>
+              <textarea id="order-notes" name="notes" rows="2"></textarea>
+            </div>
+          </div>
+
+          <div class="form-section" data-order-only>
+            <h3><span class="step-number">3</span> Pay with Venmo</h3>
+
+            <div class="pay-to">
+              <p class="pay-to-line">Venmo <strong data-pay-total>your total</strong> to</p>
+              <p class="pay-to-handle">@SophieChongg</p>
+              <p class="pay-to-line">right after you place your order</p>
+            </div>
+
+            <div class="field" data-message="Add your Venmo username.">
+              <label class="field-label" for="order-venmo">Your Venmo username <span class="optional">(so I can match your payment)</span></label>
+              <div class="input-prefix">
+                <span aria-hidden="true">@</span>
+                <input id="order-venmo" name="venmo" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" required>
+              </div>
+              <p class="field-error"></p>
+            </div>
+
+            <div class="form-actions">
+              <button class="btn order-submit" type="submit">Place order</button>
+              <p class="form-fine">All orders are final.</p>
+              <p class="form-message" role="alert" hidden></p>
+              <p class="form-fallback">Trouble? <a href="https://forms.gle/Jz1CohE3DKYZh2nA6" target="_blank" rel="noopener">Use the Google Form</a></p>
+            </div>
+          </div>
+        </form>
+
+        <div class="form-card order-done" id="order-done" tabindex="-1" hidden>
+          <h3>Thank you, <span data-done-name></span>!</h3>
+          <p>One last step: Venmo <strong data-done-total></strong> to <strong>@SophieChongg</strong>.</p>
+          <a class="btn" href="https://venmo.com/u/SophieChongg" target="_blank" rel="noopener" data-venmo-link>Pay on Venmo</a>
+          <p>Once your payment comes through, I'll email you to confirm your delivery.</p>
+          <p class="signoff">Enjoy your sweet pause.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="section about" id="about">
+      <div class="wrap">
+        <div class="portrait">
+          <img src="assets/img/sophie-800.jpg"
+               srcset="assets/img/sophie-800.jpg 533w, assets/img/sophie-1600.jpg 1066w"
+               sizes="(max-width: 760px) 22rem, 40vw"
+               width="1066" height="1600" loading="lazy"
+               alt="Sophie Chong, smiling, leaning against a stone column">
+        </div>
+
+        <div class="about-copy">
+          <h2>Hi, I'm Sophie</h2>
+          <p>I just graduated from the University of Michigan, and I'm spending my gap years doing research before starting medical school. Every box helps with my applications.</p>
+          <p>Life moves fast, and it's easy to rush past the good parts. A Sweet Pause is my reminder, and hopefully yours, to slow down for a minute and enjoy something small and sweet.</p>
+          <p>I bake everything to order, and I specialize in brown butter cookies. My signature is brown butter chocolate chip, and I bake a new seasonal flavor as the year turns.</p>
+          <p class="signoff">Thanks for pausing with me.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section contact" id="contact">
+      <div class="wrap">
+        <div class="contact-intro">
+          <h2>Say hello</h2>
+          <p class="lede">Planning an event, need a bigger batch, or curious about sourdough? Send me a note.</p>
+          <a class="instagram-link" href="https://www.instagram.com/asweetpause/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+              <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/>
+              <circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/>
+            </svg>
+            <span>Instagram: @asweetpause</span>
+          </a>
+        </div>
+
+        <!-- CONTACT FORM: messages are emailed to Sophie through FormSubmit. The address lives in js/contact.js -->
+        <form class="form-card contact-form" id="contact-form" novalidate>
+          <div class="field" data-message="Add your name.">
+            <label class="field-label" for="contact-name">Name</label>
+            <input id="contact-name" name="name" type="text" autocomplete="name" required>
+            <p class="field-error"></p>
+          </div>
+          <div class="field" data-message="Add an email address, like name@example.com.">
+            <label class="field-label" for="contact-email">Email</label>
+            <input id="contact-email" name="email" type="email" autocomplete="email" required>
+            <p class="field-error"></p>
+          </div>
+          <div class="field" data-message="Write a message.">
+            <label class="field-label" for="contact-message">Message</label>
+            <textarea id="contact-message" name="message" rows="4" required></textarea>
+            <p class="field-error"></p>
+          </div>
+          <!-- Spam trap: people never see this, but spam bots fill it in -->
+          <input class="contact-trap" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button class="btn" type="submit">Send message</button>
+          <p class="form-message" role="alert" hidden></p>
+        </form>
+
+        <div class="form-card contact-done" id="contact-done" tabindex="-1" hidden>
+          <h3>Thanks, <span data-contact-name></span>!</h3>
+          <p>Your note is on its way. I'll reply by email soon.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <a class="brand brand--footer" href="#top">
+        <img src="assets/logo.png" alt="" width="40" height="40">
+        <span>A Sweet Pause</span>
+      </a>
+      <p>&copy; <span data-year>2026</span> A Sweet Pause</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/order.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+</html>
