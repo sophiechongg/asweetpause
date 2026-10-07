@@ -46,6 +46,28 @@ At the top of `js/main.js`, change `WEEK_IS_FULL` to `true` and publish. The coo
 
 Don't only close the Google Form. People would still see the form on the site, and their orders wouldn't arrive.
 
+## Taking a week off
+
+For a week you already know about, like travel or a holiday, add it to `TIME_OFF` at the top of `js/main.js`:
+
+```js
+var TIME_OFF = [
+  {
+    from: "2026-10-10",
+    to: "2026-10-17",
+    message: "No cookies this week: I'm running the Detroit Marathon. Ordering opens again Sunday, October 18 at 8 AM."
+  }
+];
+```
+
+- **from**: the Saturday before ordering would have opened.
+- **to**: the Saturday after the delivery you're skipping.
+- **message**: shown in place of the ordering status. Say when ordering comes back.
+
+Ordering closes itself on those dates and opens again afterwards, so there's nothing to switch back. Add as many as you like, separated by commas. Old ones can stay or be deleted.
+
+To check a week off, add the date to the address: http://localhost:8000/?preview=2026-10-12
+
 ## How the order form works
 
 The form sends each order to the Google Form, so orders show up in Google Forms and its spreadsheet as before. The question IDs and answer text live in `js/order.js`. If you change a question in the Google Form, update that file to match.
