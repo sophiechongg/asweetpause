@@ -23,11 +23,12 @@
   // before ordering would open, and end it on the Saturday after the delivery
   // you're skipping. Past weeks off can be deleted, or left here.
   var TIME_OFF = [
-    {
-      from: "2026-10-10",
-      to: "2026-10-17",
-      message: "No cookies this week: I'm running the Detroit Marathon. Ordering opens again Sunday, October 18 at 8 AM."
-    }
+    // Example of a week off, copy this shape and change the dates and message:
+    // {
+    //   from: "2026-12-19",
+    //   to: "2026-12-26",
+    //   message: "No cookies this week: I'm away for the holidays. Ordering opens again Sunday, December 27 at 8 AM."
+    // }
   ];
 
   var MESSAGES = {
