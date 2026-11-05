@@ -42,7 +42,13 @@ The days and times live at the top of `js/main.js`. The same times are written i
 
 ## When a week sells out
 
-At the top of `js/main.js`, change `WEEK_IS_FULL` to `true` and publish. The cookies stay on the page as a menu, but the form closes. Change it back to `false` before Sunday.
+At the top of `js/main.js`, set `SOLD_OUT_THROUGH` to this week's Saturday date, then publish:
+
+```js
+var SOLD_OUT_THROUGH = "2026-11-07";
+```
+
+Ordering closes right away, and the cookies stay on the page as a menu. It opens again on its own on Sunday at 8 AM, so there's nothing to switch back. Setting it to `""` reopens ordering immediately.
 
 Don't only close the Google Form. People would still see the form on the site, and their orders wouldn't arrive.
 

@@ -14,9 +14,10 @@
   var CLOSES = 4 * MINUTES_PER_DAY + 10 * 60;          // Thursday 10:00 AM
   var DELIVERY_ENDS = 5 * MINUTES_PER_DAY + 19 * 60;   // Friday 7:00 PM
 
-  // If the week sells out early, change this to true to close the order form.
-  // Change it back to false before ordering opens again on Sunday.
-  var WEEK_IS_FULL = false;
+  // Sold out early? Put this week's Saturday date here, like "2026-11-07", and
+  // ordering closes right away. It opens again on its own on Sunday at 8 AM,
+  // so there's nothing to switch back. Leave it as "" the rest of the time.
+  var SOLD_OUT_THROUGH = "2026-11-07";
 
   // Weeks off. Ordering stays closed from the "from" date through the "to" date,
   // so add one before a week you can't bake or deliver. Start it on the Saturday
@@ -33,7 +34,7 @@
 
   var MESSAGES = {
     open: "Ordering is open",
-    full: "This week is sold out",
+    full: "This week is sold out. Ordering opens again Sunday at 8 AM.",
     closed: "Ordering is closed right now",
     waiting: "Ordering is closed right now"
   };
@@ -87,16 +88,18 @@
     return null;
   }
 
-  function orderState(time) {
+  function orderState(time, soldOut) {
     var t = time.day * MINUTES_PER_DAY + time.minutes;
-    if (t >= OPENS && t < CLOSES) return WEEK_IS_FULL ? "full" : "open";
+    if (t >= OPENS && t < CLOSES) return soldOut ? "full" : "open";
     if (t >= CLOSES && t < DELIVERY_ENDS) return "closed";
     return "waiting";
   }
 
   var now = previewDate() || new Date();
-  var timeOff = timeOffFor(annArborDate(now));
-  var state = timeOff ? "off" : orderState(previewTime() || annArborTime(now));
+  var today = annArborDate(now);
+  var timeOff = timeOffFor(today);
+  var soldOut = SOLD_OUT_THROUGH !== "" && today <= SOLD_OUT_THROUGH;
+  var state = timeOff ? "off" : orderState(previewTime() || annArborTime(now), soldOut);
   var message = timeOff ? timeOff.message : MESSAGES[state];
 
   // js/order.js reads this to decide whether to show the order form
