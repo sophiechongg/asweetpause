@@ -61,7 +61,7 @@ var TIME_OFF = [
   {
     from: "2026-11-21",
     to: "2026-11-28",
-    message: "No cookies this week: I'm home with my family for Thanksgiving. Ordering opens again Sunday, November 29 at 8 AM."
+    message: "No cookies this week: I'm home with my family for Thanksgiving. Ordering opens again Sunday, November 29 at 8 AM, with the winter menu: the classic chocolate chip, snickerdoodle, and ginger molasses."
   }
 ];
 ```
