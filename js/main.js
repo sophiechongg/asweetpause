@@ -17,14 +17,19 @@
   // Sold out early? Put this week's Saturday date here, like "2026-11-07", and
   // ordering closes right away. It opens again on its own on Sunday at 8 AM,
   // so there's nothing to switch back. Leave it as "" the rest of the time.
-  var SOLD_OUT_THROUGH = "2026-11-07";
+  var SOLD_OUT_THROUGH = "";
 
   // Weeks off. Ordering stays closed from the "from" date through the "to" date,
   // so add one before a week you can't bake or deliver. Start it on the Saturday
   // before ordering would open, and end it on the Saturday after the delivery
   // you're skipping. Past weeks off can be deleted, or left here.
   var TIME_OFF = [
-    // Example of a week off, copy this shape and change the dates and message:
+    {
+      from: "2026-11-21",
+      to: "2026-11-28",
+      message: "No cookies this week: I'm home with my family for Thanksgiving. Ordering opens again Sunday, November 29 at 8 AM."
+    }
+    // Example of another week off, copy the shape above and change the dates and message:
     // {
     //   from: "2026-12-19",
     //   to: "2026-12-26",

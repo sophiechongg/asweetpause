@@ -59,9 +59,9 @@ For a week you already know about, like travel or a holiday, add it to `TIME_OFF
 ```js
 var TIME_OFF = [
   {
-    from: "2026-10-10",
-    to: "2026-10-17",
-    message: "No cookies this week: I'm running the Detroit Marathon. Ordering opens again Sunday, October 18 at 8 AM."
+    from: "2026-11-21",
+    to: "2026-11-28",
+    message: "No cookies this week: I'm home with my family for Thanksgiving. Ordering opens again Sunday, November 29 at 8 AM."
   }
 ];
 ```
@@ -72,7 +72,7 @@ var TIME_OFF = [
 
 Ordering closes itself on those dates and opens again afterwards, so there's nothing to switch back. Add as many as you like, separated by commas. Old ones can stay or be deleted.
 
-To check a week off, add the date to the address: http://localhost:8000/?preview=2026-10-12
+To check a week off, add the date to the address: http://localhost:8000/?preview=2026-11-23
 
 ## How the order form works
 
