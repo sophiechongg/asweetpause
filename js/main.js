@@ -17,7 +17,7 @@
   // Sold out early? Put this week's Saturday date here, like "2026-11-07", and
   // ordering closes right away. It opens again on its own on Sunday at 8 AM,
   // so there's nothing to switch back. Leave it as "" the rest of the time.
-  var SOLD_OUT_THROUGH = "";
+  var SOLD_OUT_THROUGH = "2026-11-21";
 
   // Weeks off. Ordering stays closed from the "from" date through the "to" date,
   // so add one before a week you can't bake or deliver. Start it on the Saturday
@@ -39,7 +39,10 @@
 
   var MESSAGES = {
     open: "Ordering is open",
-    full: "This week is sold out. Ordering opens again Sunday at 8 AM.",
+    // Written for the sellout before Thanksgiving, because the next Sunday is a
+    // week off. Put the short line back after November 29:
+    // "This week is sold out. Ordering opens again Sunday at 8 AM."
+    full: "This week is sold out, and I'm home with my family for Thanksgiving next week. Ordering opens again Sunday, November 29 at 8 AM, with the winter menu: the classic chocolate chip, snickerdoodle, and ginger molasses.",
     closed: "Ordering is closed right now",
     waiting: "Ordering is closed right now"
   };
